@@ -7,30 +7,30 @@
 	<link rel="shortcut icon" href="{$basePath}/favicon.ico">
 
 	<!-- Seo -->
-	<title>{block #title|stripHtml|trim}Webapp Skeleton{/} | Contributte</title>
+	<title>{block #title|stripHtml|trim}Webapp Skeleton{/} | Webcerka</title>
 
 	<!-- Meta -->
 	<meta name="description" n:ifset="#description" content="{include #description}">
 	<meta name="keywords" n:ifset="#keywords" content="{include #keywords}">
 	<meta name="robots" content="index,follow">
 	<meta name="googlebot" content="snippet,archive">
-	<meta name="author" content="f3l1x">
+	<meta name="author" content="www.webcerka.cz">
 
 	<link rel="stylesheet" type="text/css" href="{$basePath}/assets/libs/nittro/nittro.min.css" />
 
+	{block #head}{/}
+
 	<!-- Initialise the _stack library -->
 	<script type="application/javascript">window._stack = [];</script>
-
-	{block #head}{/}
 </head>
 <body>
 
-<script type="application/javascript" src="{$basePath}/assets/libs/nittro/nittro.min.js" async defer></script>
+	<script type="application/javascript" src="{$basePath}/assets/libs/nittro/nittro.min.js" async defer></script>
 
-{block #main}
-	<div class="container">
+	{block #main}
 		<div n:snippet="content" n:inner-block="#content" class="nittro-transition-auto nittro-transition-fade"></div>
-	</div>
-{/}
+	{/}
+
+	{block #scripts}{/}
 </body>
 </html>

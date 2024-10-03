@@ -32,7 +32,7 @@ class HomePresenter extends BasePresenter
 	{
 		/** @var Template $template */
 		$template = $this->createTemplate();
-		$template->setFile(__DIR__ . '/../../../../../resources/pdf/example.latte');
+		$template->setFile('../resources/pdf/example.latte');
 		$template->title = 'Contributte PDF example';
 
 		$this->pdfResponse->setTemplate($template->renderToString());

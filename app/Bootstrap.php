@@ -22,6 +22,7 @@ final class Bootstrap
 		};
 
 		// According to NETTE_DEBUG env
+		putenv("NETTE_DEBUG=1");
 		$configurator->setEnvDebugMode();
 
 		// Enable tracy and configure it
