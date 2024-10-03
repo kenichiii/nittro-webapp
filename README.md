@@ -40,8 +40,6 @@ Focused on:
 
    Run `NETTE_DEBUG=1 bin/console migrations:migrate` to create tables. Run `NETTE_DEBUG=1 bin/console doctrine:fixtures:load --append` to create first user(s).
 
-   Or via task `make build`.
-
 5) Start your devstack or use PHP local development server.
 
    You can start PHP server by running `php -S localhost:8000 -t www` or use prepared make task `make dev`.
@@ -92,7 +90,8 @@ Here is a list of all features you can find in this project.
 ### Notable changes
 
 - `$user` variable in templates [is renamed](https://github.com/contributte/webapp-skeleton/blob/master/app/model/Latte/TemplateFactory.php) to `$_user`
-
+- ./vendor/Nittro/src/*/Presenter::afterRender() must be fixed with afterRender(): void
+  
 ### Composer packages
 
 Take a detailed look :eyes: at each single package.
