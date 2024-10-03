@@ -38,7 +38,6 @@ final class Version20190407153346 extends AbstractMigration
 		`last_logged_at` DATETIME NULL DEFAULT NULL,
 		PRIMARY KEY (`id`),
 		UNIQUE INDEX `uni-email` (`email`),
-		INDEX `key-active` (`active`),
 		INDEX `key-deleted` (`deleted`)
 		)");
     }
