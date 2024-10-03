@@ -42,7 +42,7 @@ Focused on:
 
 5) Start your devstack or use PHP local development server.
 
-   You can start PHP server by running `php -S localhost:8000 -t www` or use prepared make task `make dev`.
+   You can start PHP server by running `php -S localhost:8000 -t www`.
 
 6) Open http://localhost and enjoy!
 
