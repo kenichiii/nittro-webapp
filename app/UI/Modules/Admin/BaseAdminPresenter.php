@@ -7,6 +7,12 @@ use App\UI\Modules\Base\SecuredPresenter;
 
 abstract class BaseAdminPresenter extends SecuredPresenter
 {
+	protected function startup()
+	{
+		parent::startup();
+
+		$this->setDefaultSnippets(['content']);
+	}
 
 	public function checkRequirements(mixed $element): void
 	{
