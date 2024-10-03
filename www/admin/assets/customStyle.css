@@ -14,7 +14,6 @@
 a.arrowActive {color: #00bb00}
 .actions a:hover {color: #00bb00}
 .page-item.disabled a.page-link {background-color: #2a3038;boreder:0px}
-.datagrid .actions a {display:block;background-color: #2a3038;border-radius: 50%;padding:10px;margin-right:10px}
 
 .spinner {
 	z-index: 1590;

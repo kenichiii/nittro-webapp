@@ -5,27 +5,28 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-	<link rel="shortcut icon" href="{$basePath}/favicon.ico">
+	<link rel="shortcut icon" href="{$basePath}/base/favicon.ico">
 
 	<title>{block #title|stripHtml|trim}Webapp Skeleton{/} | Webcerka</title>
 
 	<meta name="author" content="webcerka.cz">
 
-	<link rel="stylesheet" type="text/css" href="{$basePath}/assets/libs/nittro/nittro.min.css" />
-	<link rel="stylesheet" href="{$basePath}/assets/vendors/mdi/css/materialdesignicons.min.css">
-	<link rel="stylesheet" href="{$basePath}/assets/vendors/css/vendor.bundle.base.css">
+	<link rel="stylesheet" type="text/css" href="{$basePath}/base/assets/libs/nittro/nittro.min.css" />
 
-	<link rel="stylesheet" href="{$basePath}/assets/css/style.css">
-	<link rel="stylesheet" href="{$basePath}/assets/customStyle.css">
+	<link rel="stylesheet" href="{$basePath}/admin/assets/vendors/mdi/css/materialdesignicons.min.css">
+	<link rel="stylesheet" href="{$basePath}/admin/assets/vendors/css/vendor.bundle.base.css">
+
+	<link rel="stylesheet" href="{$basePath}/admin/assets/css/style.css">
+	<link rel="stylesheet" href="{$basePath}/admin/assets/customStyle.css">
 
 	{block #head}{/}
+
+	<script type="application/javascript" src="{$basePath}/base/assets/libs/nittro/nittro.min.js" async defer></script>
 
 	<!-- Initialise the _stack library -->
 	<script type="application/javascript">window._stack = [];</script>
 </head>
 <body>
-
-	<script type="application/javascript" src="{$basePath}/assets/libs/nittro/nittro.min.js" async defer></script>
 
 	{block #main}
 		<div class="container-scroller">
@@ -33,7 +34,7 @@
 			<nav class="sidebar sidebar-offcanvas" id="sidebar">
 				<div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
 					<a target="_blank" class="sidebar-brand brand-logo" href="#">WebApp</a>
-					<a target="_blank" class="sidebar-brand brand-logo-mini" href="#">WwebApp</a>
+					<a target="_blank" class="sidebar-brand brand-logo-mini" href="#">WA</a>
 				</div>
 				<ul class="nav">
 					<li class="nav-item profile">
@@ -201,12 +202,12 @@
 			<!-- page-body-wrapper ends -->
 		</div>
 
-		<script src="{$basePath}/assets/vendors/js/vendor.bundle.base.js"></script>
-		<script src="{$basePath}/assets/js/off-canvas.js"></script>
-		<script src="{$basePath}/assets/js/hoverable-collapse.js"></script>
-		<script src="{$basePath}/assets/js/misc.js"></script>
-		<script src="{$basePath}/assets/js/settings.js"></script>
-		<script src="{$basePath}/assets/js/todolist.js"></script>
+		<script src="{$basePath}/admin/assets/vendors/js/vendor.bundle.base.js"></script>
+		<script src="{$basePath}/admin/assets/js/off-canvas.js"></script>
+		<script src="{$basePath}/admin/assets/js/hoverable-collapse.js"></script>
+		<script src="{$basePath}/admin/assets/js/misc.js"></script>
+		<script src="{$basePath}/admin/assets/js/settings.js"></script>
+		<script src="{$basePath}/admin/assets/js/todolist.js"></script>
 
 	{/block}
 
@@ -215,16 +216,19 @@
 	<script>
 		$(".form-check label,.form-radio label").append('<i class="input-helper"></i>');
 
-		_context.invoke(function(di) {
-			di.getService('ajax').on('request-created', function(event) {
-				document.getElementsByClassName('spinner')[0].style.display = 'block';
-			});
+			_stack.push(function (di) {
 
-			di.getService('snippetManager').on('after-update', function(event) {
-				document.getElementsByClassName('spinner')[0].style.display = 'none';
-				$(".form-check label,.form-radio label").append('<i class="input-helper"></i>');
-			});
-		});
+					di.getService('ajax').on('request-created', function(event) {
+						document.getElementsByClassName('spinner')[0].style.display = 'block';
+					});
+
+					di.getService('snippetManager').on('after-update', function(event) {
+						document.getElementsByClassName('spinner')[0].style.display = 'none';
+						setTimeout(function(){
+							$(".form-check label,.form-radio label").append('<i class="input-helper"></i>');
+						},50);
+					});
+				});
 
 	</script>
 
