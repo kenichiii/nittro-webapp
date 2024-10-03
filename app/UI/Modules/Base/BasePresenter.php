@@ -6,6 +6,7 @@ use App\Model\Latte\TemplateProperty;
 use App\Model\Security\SecurityUser;
 use App\UI\Control\TFlashMessage;
 use App\UI\Control\TModuleUtils;
+use App\UI\Control\TTranslate;
 use Contributte\Application\UI\Presenter\StructuredTemplates;
 use Nittro\Bridges\NittroUI\Presenter;
 

@@ -27,16 +27,17 @@ final class SignPresenter extends BaseAdminPresenter
 		if ($this->user->isLoggedIn()) {
 			$this->redirect(App::DESTINATION_AFTER_SIGN_IN);
 		}
+
 	}
 
 	public function actionOut(): void
 	{
 		if ($this->user->isLoggedIn()) {
 			$this->user->logout();
-			$this->flashSuccess('_front.sign.out.success');
+			$this->flashSuccess('_admin.sign.out.success');
 		}
 
-		$this->redirect(App::DESTINATION_AFTER_SIGN_OUT);
+		$this->redirect(App::DESTINATION_AFTER_ADMIN_SIGN_OUT);
 	}
 
 	public function processLoginForm(BaseForm $form): void
@@ -44,13 +45,12 @@ final class SignPresenter extends BaseAdminPresenter
 		try {
 			$this->user->setExpiration($form->values->remember ? '14 days' : '20 minutes');
 			$this->user->login($form->values->email, $form->values->password);
-		} catch (AuthenticationException $e) {
+			$this->disallowAjax();
+			$this->redirect(App::DESTINATION_ADMIN_HOMEPAGE);
+		} catch (\Throwable $e) {
 			$form->addError('Invalid username or password');
-
-			return;
+			$this->redrawControl('content');
 		}
-
-		$this->redirect(App::DESTINATION_AFTER_SIGN_IN);
 	}
 
 	protected function createComponentLoginForm(): BaseForm

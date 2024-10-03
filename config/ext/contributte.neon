@@ -8,8 +8,21 @@ extensions:
 	contributte.monolog: Contributte\Monolog\DI\MonologExtension
 	contributte.mailing: Contributte\Mailing\DI\MailingExtension
 	contributte.post: Contributte\Mail\DI\MailExtension
+	translation: Contributte\Translation\DI\TranslationExtension
 	- Nittro\Bridges\NittroDI\NittroExtension
 	- Jahudka\ComponentEvents\ComponentEventsExtension
+
+translation:
+	locales:
+		whitelist: [en, cs]
+		default: cs
+		fallback: [cs]
+	dirs:
+		- %appDir%/../lang/cs
+		- %appDir%/../lang/en
+	returnOriginalMessage: true # to not translate undefined messages, default is false
+	localeResolvers:
+	    - Contributte\Translation\LocalesResolvers\Session
 
 contributte.events:
 	debug: %debugMode%

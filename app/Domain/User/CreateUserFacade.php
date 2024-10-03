@@ -25,9 +25,7 @@ class CreateUserFacade
 		// Create User
 		$user = new User(
 			(string) $data['name'],
-			(string) $data['surname'],
 			(string) $data['email'],
-			(string) $data['username'],
 			Passwords::create()->hash(strval($data['password'] ?? md5(microtime())))
 		);
 

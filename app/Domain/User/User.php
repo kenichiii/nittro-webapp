@@ -18,7 +18,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class User extends AbstractEntity
 {
-
 	use TId;
 	use TCreatedAt;
 	use TUpdatedAt;
@@ -35,14 +34,8 @@ class User extends AbstractEntity
 	/** @ORM\Column(type="string", length=255, nullable=FALSE, unique=false) */
 	private string $name;
 
-	/** @ORM\Column(type="string", length=255, nullable=FALSE, unique=false) */
-	private string $surname;
-
 	/** @ORM\Column(type="string", length=255, nullable=FALSE, unique=TRUE) */
 	private string $email;
-
-	/** @ORM\Column(type="string", length=255, nullable=FALSE, unique=TRUE) */
-	private string $username;
 
 	/** @ORM\Column(type="integer", length=10, nullable=FALSE) */
 	private int $state;
@@ -59,12 +52,10 @@ class User extends AbstractEntity
 	 */
 	private ?DateTime $lastLoggedAt = null;
 
-	public function __construct(string $name, string $surname, string $email, string $username, string $passwordHash)
+	public function __construct(string $name, string $email, string $passwordHash)
 	{
 		$this->name = $name;
-		$this->surname = $surname;
 		$this->email = $email;
-		$this->username = $username;
 		$this->password = $passwordHash;
 
 		$this->role = self::ROLE_USER;
@@ -79,16 +70,6 @@ class User extends AbstractEntity
 	public function getEmail(): string
 	{
 		return $this->email;
-	}
-
-	public function getUsername(): string
-	{
-		return $this->username;
-	}
-
-	public function changeUsername(string $username): void
-	{
-		$this->username = $username;
 	}
 
 	public function getLastLoggedAt(): ?DateTime
@@ -136,20 +117,9 @@ class User extends AbstractEntity
 		return $this->name;
 	}
 
-	public function getSurname(): string
-	{
-		return $this->surname;
-	}
-
-	public function getFullname(): string
-	{
-		return $this->name . ' ' . $this->surname;
-	}
-
-	public function rename(string $name, string $surname): void
+	public function setName(string $name): void
 	{
 		$this->name = $name;
-		$this->surname = $surname;
 	}
 
 	public function getState(): int
@@ -176,7 +146,6 @@ class User extends AbstractEntity
 		return new Identity($this->getId(), [$this->role], [
 			'email' => $this->email,
 			'name' => $this->name,
-			'surname' => $this->surname,
 			'state' => $this->state,
 			'gravatar' => $this->getGravatar(),
 		]);

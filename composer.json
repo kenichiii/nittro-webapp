@@ -41,7 +41,8 @@
     "nettrine/fixtures": "^0.8.0",
     "nittro/nette-bridges": "^2.1",
     "jahudka/component-events": "^2.0",
-    "ublaboo/datagrid": "^6.10"
+    "ublaboo/datagrid": "^6.10",
+    "contributte/translation": "^2.0"
   },
   "require-dev": {
     "contributte/qa": "^0.3",
