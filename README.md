@@ -1,32 +1,7 @@
-![](https://heatbadger.now.sh/github/readme/contributte/webapp-skeleton/)
-
-<p align=center>
-  <a href="https://github.com/contributte/webapp-skeleton/actions"><img src="https://badgen.net/github/checks/contributte/webapp-skeleton/master"></a>
-  <a href="https://coveralls.io/r/contributte/webapp-skeleton"><img src="https://badgen.net/coveralls/c/github/contributte/webapp-skeleton"></a>
-  <a href="https://packagist.org/packages/contributte/webapp-skeleton"><img src="https://badgen.net/packagist/dm/contributte/webapp-skeleton"></a>
-  <a href="https://packagist.org/packages/contributte/webapp-skeleton"><img src="https://badgen.net/packagist/v/contributte/webapp-skeleton"></a>
-</p>
-<p align=center>
-  <a href="https://packagist.org/packages/contributte/webapp-skeleton"><img src="https://badgen.net/packagist/php/contributte/webapp-skeleton"></a>
-  <a href="https://github.com/contributte/webapp-skeleton"><img src="https://badgen.net/github/license/contributte/webapp-skeleton"></a>
-  <a href="https://bit.ly/ctteg"><img src="https://badgen.net/badge/support/gitter/cyan"></a>
-  <a href="https://bit.ly/cttfo"><img src="https://badgen.net/badge/support/forum/yellow"></a>
-  <a href="https://contributte.org/partners.html"><img src="https://badgen.net/badge/sponsor/donations/F96854"></a>
-</p>
-
-<p align=center>
-Website 🚀 <a href="https://contributte.org">contributte.org</a> | Contact 👨🏻‍💻 <a href="https://f3l1x.io">f3l1x.io</a> | Twitter 🐦 <a href="https://twitter.com/contributte">@contributte</a>
-</p>
-
-<p align=center>
-    <img src="https://api.microlink.io?url=https%3A%2F%2Fexamples.contributte.org%2Fwebapp-skeleton%2F&overlay.browser=light&screenshot=true&meta=false&embed=screenshot.url"></img>
-</p>
-
------
 
 ## Goal
 
-Main goal is to provide best prepared starter-kit project for Nette developers.
+Main goal is to provide best prepared starter-kit project for Nette developers with mysql and nittro framework on front.
 
 Focused on:
 
@@ -34,39 +9,19 @@ Focused on:
 - `nette/*` packages
 - Doctrine ORM via `nettrine/*`
 - Symfony components via `contributte/*`
+- Contribute Datagrid
+- Nittro
 - codestyle checking via **CodeSniffer** and `contributte/qa`
 - static analysing via **phpstan** and `contributte/phpstan`
 - unit / integration tests via **Nette Tester** and `contributte/tester`
 
 ## Demo
 
-https://examples.contributte.org/webapp-skeleton/
+
 
 ## Installation
 
-To install latest version of `contributte/webapp-skeleton` use [Composer](https://getcomposer.org).
-
-```
-composer create-project -s dev contributte/webapp-skeleton acme
-```
-
-### Install using [docker](https://github.com/docker/docker/)
-
-1) At first, use composer to install this project.
-
-   ```
-   composer create-project -s dev contributte/webapp-skeleton
-   ```
-
-2) After that, you have to setup Postgres >= 10 database. You can start it manually or use docker image `dockette/postgres:12`.
-
-   ```
-   docker run -it -p 5432:5432 -e POSTGRES_PASSWORD=webapp -e POSTGRES_USER=webapp dockette/postgres:12
-   ```
-
-   Or use make task, `make docker-postgres`.
-
-3) Custom configuration file is located at `config/local.neon`. Edit it if you want.
+1) Custom configuration file is located at `config/local.neon`. Edit it if you want.
 
    Default configuration should look like:
 
@@ -96,37 +51,6 @@ composer create-project -s dev contributte/webapp-skeleton acme
    Take a look at:
     - http://localhost:8000.
     - http://localhost:8000/admin (admin@admin.cz / admin)
-
-### Install using [docker-compose](https://https://github.com/docker/compose/)
-
-1) At first, use composer to install this project.
-
-   ```
-   composer create-project -s dev contributte/webapp-project
-   ```
-
-2) Modify `config/local.neon` and set host to `database`
-
-   Default configuration should look like this:
-
-   ```neon
-   # Host Config
-   parameters:
-       # Database
-       database:
-           host: database
-           dbname: webapp
-           user: webapp
-           password: webapp
-   ```
-
-3) Run `docker-compose up`
-
-4) Open http://localhost and enjoy!
-
-   Take a look at:
-    - http://localhost.
-    - http://localhost/admin (admin@admin.cz / admin)
 
 ## Features
 
@@ -209,27 +133,3 @@ Take a detailed look :eyes: at each single package.
 - [phpstan/phpstan](https://github.com/phpstan/phpstan)
 - [mockery/mockery](https://github.com/mockery/mockery)
 - [nelmio/alice](https://github.com/nelmio/alice)
-
-## Screenshots
-
-![](.docs/assets/screenshot1.png)
-
-> admin@admin.cz / admin
-
-![](.docs/assets/screenshot2.png)
-![](.docs/assets/screenshot3.png)
-![](.docs/assets/screenshot4.png)
-
-## Development
-
-See [how to contribute](https://contributte.org/contributing.html) to this package.
-
-This package is currently maintaining by these authors.
-
-<a href="https://github.com/f3l1x">
-    <img width="80" height="80" src="https://avatars2.githubusercontent.com/u/538058?v=3&s=80">
-</a>
-
------
-
-Consider to [support](https://contributte.org/partners.html) **contributte** development team. Also thank you for using this project.
