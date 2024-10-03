@@ -19,7 +19,7 @@ abstract class BaseAdminPresenter extends SecuredPresenter
 		parent::checkRequirements($element);
 
 		if (!$this->user->isAllowed('Admin:Home')) {
-			$this->flashError('You cannot access this with user role');
+			$this->flashError($this->_('You cannot access this with user role'));
 			$this->redirect(App::DESTINATION_FRONT_HOMEPAGE);
 		}
 	}

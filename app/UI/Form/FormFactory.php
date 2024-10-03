@@ -2,8 +2,19 @@
 
 namespace App\UI\Form;
 
+use Nette;
+
 final class FormFactory
 {
+	use Nette\SmartObject;
+
+	public function __construct(
+		private Nette\Security\User $user,
+		private Nette\Localization\Translator $translator
+	)
+	{
+	}
+
 
 	public function forFrontend(): BaseForm
 	{
@@ -17,7 +28,9 @@ final class FormFactory
 
 	private function create(): BaseForm
 	{
-		return new BaseForm();
+		$form = new BaseForm();
+		$form->setTranslator($this->translator);
+		return $form;
 	}
 
 }

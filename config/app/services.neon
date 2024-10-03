@@ -37,6 +37,7 @@ services:
 			class: App\Domain\User\UserRepository
 			create: @Doctrine\ORM\EntityManagerInterface::getRepository('App\Domain\User\User')
 
+
 	# Console ================
 	- App\Console\HelloCommand
 

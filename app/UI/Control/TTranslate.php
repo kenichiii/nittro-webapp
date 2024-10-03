@@ -11,9 +11,9 @@ use Nette\Localization\Translator;
 trait TTranslate
 {
 
-	protected function _(string $message): string // phpcs:ignore
+	protected function _(string $message, ?array $args = null): string // phpcs:ignore
 	{
-		return $this->getContext()->getByType(Translator::class)->translate($message);
+		return $this->context->getByType(Translator::class)->translate($message, $args);
 	}
 
 }

@@ -20,5 +20,5 @@ abstract class BasePresenter extends Presenter
 	use StructuredTemplates;
 	use TFlashMessage;
 	use TModuleUtils;
-
+	use TTranslate;
 }

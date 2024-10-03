@@ -3,7 +3,6 @@
 namespace App\UI\Modules\Admin\Sign;
 
 use App\Model\App;
-use App\Model\Exception\Runtime\AuthenticationException;
 use App\UI\Form\BaseForm;
 use App\UI\Form\FormFactory;
 use App\UI\Modules\Admin\BaseAdminPresenter;
@@ -34,7 +33,7 @@ final class SignPresenter extends BaseAdminPresenter
 	{
 		if ($this->user->isLoggedIn()) {
 			$this->user->logout();
-			$this->flashSuccess('_admin.sign.out.success');
+			$this->flashSuccess('admin.sign.out.success');
 		}
 
 		$this->redirect(App::DESTINATION_AFTER_ADMIN_SIGN_OUT);
